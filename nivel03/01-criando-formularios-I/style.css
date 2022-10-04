@@ -1,0 +1,214 @@
+:root {
+    --Staatliches: 'Staatliches', sans-serif;
+    --Poopins: 'Poppins', sans-serif; 
+
+    --purple: #535971;
+    --pink: #FF5374;
+    --gray: #EFEFEF;
+
+    --text: #4E4958;
+    --span: #9c99a4;
+    --span-over: #666271;
+    --input: #FAFAFC;
+    --border: #E6E6F0;
+    --border-hover: #cdcdd6;
+    --button-hover: #f95c7b;
+    --button-down: #d03554;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    font-weight: lighter;
+}
+
+body {
+    font-family: var(--Poopins);
+    background: var(--gray);
+    color: var(--text);
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 100vw;
+    height: 436px;
+    background-color: var(--purple);
+}
+
+#page {
+    width: 750px;
+    margin: auto;
+}
+
+header {
+    padding-top: 140px;
+}
+
+header h1,
+header p {
+    width: 417px;
+    color: white;
+}
+
+header h1 {
+    font-family: var(--Staatliches);
+    font-size: 48px;
+    letter-spacing: 1px;
+
+    margin-bottom: 18px;
+}
+
+header p {
+    font-family: 'Poppins';
+    font-size: 20px;
+
+    margin-bottom: 58px;
+}
+
+main {
+    padding: 64px;
+    border-radius: 20px 20px 0 0;
+    background-color: white;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+form fieldset {
+    border: none;
+}
+
+form legend,
+form h2 {
+    color: var(--purple)
+}
+
+form legend {
+    margin: 30px 0 32px;
+    font-family: var(--Staatliches);
+    font-size: 24px;
+    line-height: 34px;
+
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+
+    color: var(--purple);
+}
+
+.personal-info legend {
+    margin: 0 0 36px;
+    padding-bottom: 16px;
+}
+
+form label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+form label span:hover {
+    color: var(--span-over);
+}
+form label span {
+    font-size: 12px;
+    color: var(--span);
+}
+
+form input {
+    width: 100%;
+    height: 56px;
+    padding: 10px;
+    margin-bottom: 16px;
+    
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    outline: none;
+
+    font-size: 18px;
+    
+    background-color: var(--input);
+}
+
+form input:hover {
+    border: 1px solid var(--border-hover);
+}
+
+form .name {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    column-gap: 22px;
+}
+
+form .name input,
+form .name label {
+    flex-basis: 300px;
+}
+
+form input:focus {
+    border: 1px solid var(--purple);
+}
+
+form .info input:not(:placeholder-shown):not(:focus):invalid {
+    border: 1px solid var(--pink);
+}
+
+form h2 {
+    margin-bottom: 11px;
+    font-family: var(--Staatliches);
+    font-size: 20px;
+    line-height: 34px;
+}
+
+form .mentorship-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+form .data {
+    flex-basis: 300px;
+    margin-right: 22px;
+}
+
+form .time {
+    flex-basis: 140px;
+
+}
+
+footer {
+    width: 750px;
+    padding: 52px;
+    margin-bottom: 166px;
+    
+    border-radius: 0 0 20px 20px;
+    background-color: var(--purple);
+}
+
+footer button {
+    width: 100%;
+    border: none;
+    padding: 15px;
+    border-radius: 20px;
+    background-color: var(--pink);
+    color: white;
+
+    font-family: var(--Staatliches);
+    font-size: 20px;
+    line-height: 26px;
+}
+
+footer button:hover {
+    background-color: var(--button-hover);
+}
+
+footer button:active {
+    background-color: var(--button-down);
+}
