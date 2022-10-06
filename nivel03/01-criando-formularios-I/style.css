@@ -124,7 +124,7 @@ form label span {
 form input {
     width: 100%;
     height: 56px;
-    padding: 10px;
+    padding: 0 15px;
     margin-bottom: 16px;
     
     border-radius: 8px;
@@ -133,6 +133,7 @@ form input {
 
     font-size: 18px;
     
+    color: var(--span);
     background-color: var(--input);
 }
 
@@ -150,6 +151,11 @@ form .name {
 form .name input,
 form .name label {
     flex-basis: 300px;
+}
+
+form input[type="password"] {
+    font-size: 40px !important;
+    line-height: 0;
 }
 
 form input:focus {
