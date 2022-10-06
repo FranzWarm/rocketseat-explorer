@@ -1,0 +1,104 @@
+:root {
+    --ff-heading: 'Staatliches', sans-serif;
+    --ff-texting: 'Palanquin', sans-serif;
+
+    --bg-primary:   #EFF1FF;
+    --bg-span:      #FEEAFA;
+    --bg-title:     #CBC0D3;
+    --bg-secondary: #8E9AAF;
+    --fc-secondary: #4A4E69;
+    --fc-primary:   #23053A;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+    font-family: var(--ff-texting);
+    font-weight: lighter;
+    font-size: 62.5%;
+}
+
+.page-wrapper {
+    max-width: 42.5rem;
+    margin: 0 auto;
+    
+    background-color: var(--bg-primary);
+}
+
+header {
+    padding: 3rem 0;
+    text-align: center;
+
+    background-color: var(--bg-secondary);
+}
+
+header img {
+    width: 13.7rem;
+    height: auto;
+    
+    margin-bottom: 3rem;
+}
+
+header h1 {
+    padding: 0.8rem;
+    
+    font-family: var(--ff-heading);
+    font-size: 4rem;
+    line-height: 3.4rem;
+    letter-spacing: 0.05em;
+    
+    color: #FFF;
+    background-color: var(--bg-title);
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+main {
+    padding: 3.2rem;
+}
+
+body p {
+    max-width: 30.5rem;
+    margin: -0.5rem auto 6.3rem;
+    text-align: center;
+    
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 1.9rem;
+    color: var(--fc-primary)
+}
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 3.2rem;
+}
+
+.icecream-pic {
+    position: relative;
+}
+
+.icecream-pic span {
+    position: absolute;
+    top: 1.6rem;
+    right: 1.6rem;
+    padding: 0 2.4rem;
+
+    font-family: var(--ff-heading);
+    font-size: 2rem;
+    line-height: 3.4rem;
+    text-transform: uppercase;
+    color: var(--fc-secondary);
+
+    border-radius: 2rem;
+    background-color: var(--bg-span);
+}
+
+.icecream-pic img {
+    width: 100%;
+    height: auto;
+
+    border-radius: 2rem;
+}
