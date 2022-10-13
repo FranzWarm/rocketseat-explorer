@@ -1,6 +1,6 @@
 # Javascript - Exercício 01
 
-## Operações matemáticas utilizando prompt() e alert()
+### Operações matemáticas utilizando prompt() e alert()
 
 Este exercício:
 
