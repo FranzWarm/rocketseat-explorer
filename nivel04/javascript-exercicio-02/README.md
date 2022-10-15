@@ -12,4 +12,4 @@ Este exercício:
 - As notas são geradas aleatóriamente;
 - Mostra uma mensagem com os dados de cada estudante, dizendo se foi aprovado ou reprovado dependendo da média das notas.
 
-Clique [aqui](https://franzwarm.github.io/rocketseat-explorer/nivel04/javascript-exercicio-02/) para ver o resultado.
+Clique [aqui](https://franzwarm.github.io/rocketseat-explorer/nivel04/javascript-exercicio-02) para ver o resultado.
