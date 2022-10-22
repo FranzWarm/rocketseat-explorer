@@ -30,7 +30,7 @@ tryButton.addEventListener("click", () => {
 
     guesses++
 
-    if (guess == hiddenNumber) {
+    if (guess == hiddenNumber && guess != "") {
         endGame()
     } else {
         // Screen Shake
@@ -49,7 +49,7 @@ tryButton.addEventListener("click", () => {
         } else {
             missText.innerHTML = missMessages[randomMsg]
         }
-        
+
         missText.classList.add("displayMiss")
         setTimeout(() => {
             missText.classList.remove("displayMiss")
@@ -67,6 +67,7 @@ restartButton.addEventListener("click", () => {
 function newGame() {
     togleBounce()
     hiddenNumber = Number(Math.round(Math.random() * 10))
+    console.log(hiddenNumber)
     guesses = 0
     guessInput.value = ""
 }
