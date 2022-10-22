@@ -1,0 +1,160 @@
+:root {
+    font-size: 62.5%;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+
+    background: linear-gradient(287.56deg, #C2E9FB 0%, #A1C4FD 100%);
+
+    font-family: 'DM Sans', sans-serif;
+}
+
+.hide {
+    display: none;
+}
+
+main {
+    width: fit-content;
+    margin-top: -12rem;
+    padding: 4.8rem 6.4rem 6.4rem;
+    text-align: center;
+    background: #FFFFFF;
+    border-radius: 0.6rem;
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin-bottom: 1.6rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.4rem;
+    line-height: 2.9rem;
+    font-weight: 600;
+
+    color: #34355B;
+}
+
+h2 {
+    margin-bottom: 3.3rem;
+    font-size: 2.4rem;
+    font-weight: 400;
+    line-height: 150%;
+
+    color: #34355B;
+}
+
+p {
+    margin-bottom: 4.8rem;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 150%;
+
+    opacity: 0.8;
+    color: #34355B;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+}
+
+span {
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    font-weight: bolder;
+    color: crimson;
+    text-shadow: 0 0 1px black;
+    opacity: 0;
+}
+
+input, button {
+    border: none;
+    outline: none;
+    padding: 1.6rem;
+}
+
+input {
+    width: 4rem;
+    background: #DCE2E9;
+    border-radius: .4rem 0 0 .4rem;
+    
+    text-align: center;
+    font-size: 1.6rem;
+    line-height: 2rem;
+    font-weight: 400;
+}
+
+button {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 2rem;
+
+    color: #FFFFFF;
+    background-color: #7879F1;
+    border-radius: 0 .4rem .4rem 0;
+}
+
+.second-screen button, #start {
+    border-radius: .4rem;
+}
+
+button:hover {
+    background-color: #6262d6;
+}
+    
+button:active {
+    background-color: #4c4c9c;
+}
+
+.shakeIt {
+    animation: shakeAnim .2s 1;
+}
+
+.displayMiss {
+    animation: missedAnim .5s 2;
+}
+
+.bounce {
+    animation: bounceAnim 2s infinite ease-in-out;
+}
+
+@keyframes shakeAnim {
+    0% { transform: translateX(0) }
+    15% { transform: translateX(-15px) }
+    25% { transform: translateX(15px) }
+    50% { transform: translateX(-5px) }
+    75% { transform: translateX(5px) }
+    100% { transform: translateX(0) }
+}
+
+@keyframes missedAnim {
+    from {
+        opacity: 1;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-35px);
+    }
+}
+
+@keyframes bounceAnim {
+    0% {
+        transform: translateY(5px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(5px);
+    }
+}
