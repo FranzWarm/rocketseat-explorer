@@ -41,8 +41,15 @@ tryButton.addEventListener("click", () => {
 
         // Display text for wrong attempt
         const randomMsg = Math.round(Math.random()*(missMessages.length -1))
-        console.log(randomMsg)
-        missText.innerHTML = missMessages[randomMsg]
+
+        if (isNaN(guess)) {
+            missText.innerHTML = "Isso nem é número!"
+        } else if (guess === "") {
+            missText.innerHTML = "Digite um número!"
+        } else {
+            missText.innerHTML = missMessages[randomMsg]
+        }
+        
         missText.classList.add("displayMiss")
         setTimeout(() => {
             missText.classList.remove("displayMiss")
@@ -61,7 +68,6 @@ function newGame() {
     togleBounce()
     hiddenNumber = Number(Math.round(Math.random() * 10))
     guesses = 0
-    console.log(hiddenNumber)
     guessInput.value = ""
 }
 
