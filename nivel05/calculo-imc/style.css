@@ -1,0 +1,182 @@
+:root {
+    font-size: 62.5%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    
+    background-color: #040924;
+}
+
+body, input, button {
+    font-size: 1.6rem;
+    line-height: 2rem;
+}
+
+main {
+    display: grid;
+    place-content: center;
+
+    width: 100vw;
+    height: 100vh;
+}
+
+.card {
+    width: fit-content;
+    margin-top: -1.2rem;
+    padding: 4.8rem 6.4rem 6.4rem;
+
+    border-radius: .6rem;
+    background-color: #FFF;
+    box-shadow: 0 .2rem .4rem rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    font-weight: bold;
+    font-size: 3.2rem;
+    line-height: 4rem;
+    color: #0C3440;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 3.2rem;
+}
+
+label {
+    padding-bottom: .8rem;
+
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    color: #00453A;
+}
+
+input + label {
+    margin-top: 1.6rem;
+}
+
+input {
+    width: 30rem;
+    height: fit-content;
+    padding: 1.6rem;
+    
+    border-radius: .4rem;
+    border: 1px solid rgba(73, 80, 87, 0.3); 
+    background-color: #DCE2E9;
+    color: #212529;
+}
+
+input:focus {
+    outline: 2px solid #02799D;
+}
+
+input::placeholder {
+    color: rgba(73, 80, 87, 0.5);
+}
+
+form button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    width: 100%;
+    height: fit-content;
+    margin-top: 3.2rem;
+    padding: 1.6rem;
+
+    font-weight: bold;
+    
+    border-radius: .4rem;
+    border: none;
+    background-color: #02799D;
+    color: #FFF;
+
+    cursor: pointer;
+    transition: background .3s;
+}
+
+form button svg {
+    margin-top: -.31rem;
+}
+
+form button:hover {
+    background-color: #015d79;
+}
+
+form button:active {
+    background-color: #1b5266;
+}
+
+/* Error message */
+.alert {
+    position: absolute;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    padding: .8rem;
+
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 2rem;
+
+    background-color: #F03E3E;
+    color: #FFF;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-3rem);
+
+    transition: transform .5s;
+}
+
+/* Popup with results */
+
+.modal {
+    position: absolute;
+    inset: 0;
+
+    display: grid;
+    place-content: center;
+    background: rgba(0, 0, 0, 0.7);
+
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal .card {
+    position: relative;
+}
+
+.modal button {
+    position: absolute;
+    top: 1.6rem;
+    right: 1.6rem;
+    
+    border: none;
+    background: none;
+
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.modal button:hover {
+    transform: scale(1.2);
+}
+
+
+/* Elements visibitity */
+.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
