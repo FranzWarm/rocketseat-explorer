@@ -12,19 +12,20 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
     />
-    <script src="./script.js" defer></script>
+    <script src="./js/script.js" defer type="module"></script>
   </head>
   <body>
     <main>
 
       <div class="modal">
         <div class="card">
-          <h2 class="title">Seu IMC é de XX</h2>
+          <h2 class="title">Seu IMC é de XXX</h2>
+          <p>Classificação: <span>YYY</span></p>
           <button><img src="./assets/close.svg" alt="Imagem para fechar o popup"></button>
         </div>
       </div>
 
-      <div class="alert">
+      <div class="alert-error">
         <p>Digite somente números</p>
       </div>
 
@@ -32,9 +33,9 @@
         <h1 class="title">Cálculo de IMC</h1>
         <form>
           <label for="weight">Peso (kg)</label>
-          <input type="number" name="weight" id="weight" placeholder="60" />
+          <input type="text" name="weight" id="weight" placeholder="60" />
           <label for="height">Altura (cm)</label>
-          <input type="number" name="height" id="height" placeholder="165"/>
+          <input type="text" name="height" id="height" placeholder="165"/>
           <button>
             Calcular IMC
             <img src="./assets/arrow.svg" alt="Seta para a direita">
