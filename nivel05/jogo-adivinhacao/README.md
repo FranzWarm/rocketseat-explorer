@@ -16,6 +16,7 @@ Este exercício:
 ### Clique [aqui](https://franzwarm.github.io/rocketseat-explorer/nivel05/jogo-adivinhacao) para ver o resultado.
 
 <br>
-
-https://user-images.githubusercontent.com/80177177/197366071-481ea04b-1aff-487d-b05c-47e4274b34a1.mp4
+<div align="center">
+  <video src="https://user-images.githubusercontent.com/80177177/197366071-481ea04b-1aff-487d-b05c-47e4274b34a1.mp4">
+</div>
 
