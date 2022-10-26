@@ -12,3 +12,8 @@ Este projeto:
 - Dispõe da função de tocar/pausar um som de fundo enquanto o site estiver aberto.
 
 ### Clique [aqui](https://franzwarm.github.io/rocketseat-explorer/nivel05/timer-pomodoro/) para ver o resultado.
+
+<br>
+<p align="center">
+  <a href="https://franzwarm.github.io/rocketseat-explorer/nivel05/timer-pomodoro/"><img alt="Capture de tela da aplicação" src="https://user-images.githubusercontent.com/80177177/198071040-04821878-04d2-436f-8c24-52400c089c7a.png"></a>
+</p>
