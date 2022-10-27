@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: #fff;
+  --bg-card-regular: #e1e1e6;
+  --bg-card-active: #02799d;
+
+  --ff-regular: #323238;
+  --ff-active: #fff;
+
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+
+  color: var(--ff-regular);
+  background-color: var(--bg-color);
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 19rem;
+
+  height: 100vh;
+}
+
+#timer-panel {
+  min-width: 32.5rem;
+  justify-self: end;
+  align-self: center;
+}
+
+#sound-panel {
+  min-width: 30.8rem;
+  justify-self: start;
+  align-self: center;
+}
+
+.timer span {
+  font-size: 12.6rem;
+  line-height: 14.8rem;
+  letter-spacing: 0;
+}
+
+.hide {
+  display: none;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-around;
+
+  margin-top: 1.8rem;
+}
+
+.controls button {
+  border: none;
+  background-color: transparent;
+
+  cursor: pointer;
+}
+
+.sound-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3.2rem;
+
+  width: 30.8rem;
+}
+
+.sound-cards button {
+  width: 13.8rem;
+  height: 15.2rem;
+
+  border: none;
+  border-radius: 2.4rem;
+  background-color: var(--bg-card-regular);
+
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+.sound-cards button:hover {
+  filter: brightness(0.9);
+}
+
+.sound-cards button:active {
+  filter: brightness(0.95);
+}
+
+.blinking {
+  animation-name: blinkAnim;
+  animation-duration: .7s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes blinkAnim {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: .9;
+  }
+}
