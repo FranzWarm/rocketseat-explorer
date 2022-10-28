@@ -21,24 +21,57 @@ const soundsList = [
   (beepFx = new Audio("./assets/beep.wav")),
   (readyFx = new Audio("./assets/ready.wav")),
 ];
-// CONTROL BUTTONS
+// VOLUME SLIDER
+const volumeSliderList = [
+  (forestVolSlider = document.querySelector(`.forest .slider`)),
+  (rainVolSlider = document.querySelector(`.rain .slider`)),
+  (coffeeVolSlider = document.querySelector(`.coffee .slider`)),
+  (fireplaceVolSlider = document.querySelector(`.fireplace .slider`)),
+];
+// CONTROL AND THEME BUTTONS
 const ctrlBtnsList = [
   (playBtn = document.querySelector(".play")),
   (pauseBtn = document.querySelector(".pause")),
   (stopBtn = document.querySelector(".stop")),
   (addFiveBtn = document.querySelector(".addFiveMin")),
   (subFiveBtn = document.querySelector(".subFiveMin")),
+  (lightThemeBtn = document.querySelector(".light")),
+  (darkThemeBtn = document.querySelector(".dark")),
 ];
-// CONTROL ICONS
+// CONTROL AND THEME ICONS
 const ctrlIconsList = [
   (playIcon = document.querySelector(".play svg path")),
   (pauseIcon = document.querySelector(".pause svg path")),
   (stopIcon = document.querySelector(".stop svg path")),
   (addFiveIcon = document.querySelector(".addFiveMin svg path")),
   (subFiveIcon = document.querySelector(".subFiveMin svg path")),
+  (lightThemeIcon = document.querySelector(".light svg path")),
+  (darkThemeIcon = document.querySelector(".dark svg path")),
+];
+// ROOT ELEMENT
+const cssRoot = document.querySelector(":root");
+// LIGHT THEME PALETTE
+const lightColorsList = [
+  ["--bg-color", "#fff"],
+  ["--bg-card-regular", "#e1e1e6"],
+  ["--bg-card-active", "#02799d"],
+  ["--ff-regular", "#323238"],
+  ["--ff-secondary", "#323238"],
+  ["--ff-slider", "#323238"],
+  ["--ff-active", "#fff"],
+];
+// DARK THEME PALETTE
+const darkColorsList = [
+  ["--bg-color", "#121214"],
+  ["--bg-card-regular", "#29292E"],
+  ["--bg-card-active", "#10495c"],
+  ["--ff-regular", "#C4C4CC"],
+  ["--ff-secondary", "#FFF"],
+  ["--ff-slider", "#FFF"],
+  ["--ff-active", "#FFF"],
 ];
 // TIMER UNITS
-const displayTimer = document.querySelector(".timer")
+const displayTimer = document.querySelector(".timer");
 const displayMinutes = document.querySelector(".minutes");
 const displaySeconds = document.querySelector(".seconds");
 
@@ -48,6 +81,12 @@ const displaySeconds = document.querySelector(".seconds");
 let nowPlaying = "";
 beepFx.volume = 0.3;
 readyFx.volume = 0.3;
+
+function toogleTheme(theme) {
+  for (const property in theme) {
+    cssRoot.style.setProperty(theme[property][0], theme[property][1]);
+  }
+}
 
 function resetSndCards() {
   for (const card of soundBtnsList) {
@@ -61,6 +100,11 @@ function resetSndCards() {
   for (const sound of soundsList) {
     sound.pause();
   }
+
+  for (const vol of volumeSliderList) {
+    vol.style.backgroundColor = "var(--ff-slider)"
+    vol.value = 0
+  }
 }
 
 function activateSndCard(card) {
@@ -69,6 +113,7 @@ function activateSndCard(card) {
   const targetIcon = cardsIconList[index];
   const targetSound = soundsList[index];
   const sound = targetCard.className;
+  const targetSlider = volumeSliderList[index];
 
   resetSndCards();
 
@@ -78,6 +123,9 @@ function activateSndCard(card) {
     targetSound.loop = true;
     targetCard.style.backgroundColor = "var(--bg-card-active)";
     targetIcon.style.fill = "var(--ff-active)";
+
+    targetSlider.style.backgroundColor = "var(--ff-active)"
+    targetSlider.value = 50
     return;
   }
   // stops current sound
@@ -145,7 +193,7 @@ function pauseTimer() {
 }
 
 function stopTimer() {
-	displayTimer.classList.remove("blinking")
+  displayTimer.classList.remove("blinking");
   clearTimeout(timerCountdown);
   timerIsRunning = false;
   getStoredTime();
@@ -158,9 +206,9 @@ function runTimer() {
   timerCountdown = setInterval(() => {
     --seconds;
 
-		if (minutes <= 0 && seconds <= 10) {
-			displayTimer.classList.add("blinking")
-		}
+    if (minutes <= 0 && seconds <= 10) {
+      displayTimer.classList.add("blinking");
+    }
 
     if (minutes <= 0 && seconds < 0) {
       stopTimer();
@@ -232,19 +280,23 @@ subFiveBtn.addEventListener("mouseleave", (e) => {
   highlighBtnReset(e.target);
 });
 
+lightThemeBtn.addEventListener("mouseenter", (e) => {
+  highlighBtn(e.target);
+});
+
+lightThemeBtn.addEventListener("mouseleave", (e) => {
+  highlighBtnReset(e.target);
+});
+
+darkThemeBtn.addEventListener("mouseenter", (e) => {
+  highlighBtn(e.target);
+});
+
+darkThemeBtn.addEventListener("mouseleave", (e) => {
+  highlighBtnReset(e.target);
+});
+
 // Add and subtract minutes to the timer
-addFiveBtn.addEventListener("click", () => {
-  minutes += 5;
-  updateTimerDisplay(minutes, seconds);
-  beepFx.play();
-});
-
-subFiveBtn.addEventListener("click", () => {
-  minutes -= 5;
-  updateTimerDisplay(minutes, seconds);
-  beepFx.play();
-});
-
 playBtn.addEventListener("click", () => {
   runTimer();
   togglePlayBtn();
@@ -266,3 +318,37 @@ stopBtn.addEventListener("click", () => {
   stopTimer();
   beepFx.play();
 });
+
+addFiveBtn.addEventListener("click", () => {
+  minutes += 5;
+  updateTimerDisplay(minutes, seconds);
+  beepFx.play();
+});
+
+subFiveBtn.addEventListener("click", () => {
+  minutes -= 5;
+  updateTimerDisplay(minutes, seconds);
+  beepFx.play();
+});
+
+lightThemeBtn.addEventListener("click", () => {
+  lightThemeBtn.classList.toggle("hide");
+  darkThemeBtn.classList.toggle("hide");
+  toogleTheme(darkColorsList);
+});
+
+darkThemeBtn.addEventListener("click", () => {
+  lightThemeBtn.classList.toggle("hide");
+  darkThemeBtn.classList.toggle("hide");
+  toogleTheme(lightColorsList);
+});
+
+rainVolSlider.addEventListener("mousedown", () => {
+  rainSnd.play()
+  rainSnd.volume = rainVolSlider.value / 100
+
+  rainVolSlider.addEventListener("mousemove", () => {
+    rainSnd.volume = rainVolSlider.value / 100
+  })
+
+})

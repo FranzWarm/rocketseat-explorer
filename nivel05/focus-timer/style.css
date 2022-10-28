@@ -10,6 +10,8 @@
   --bg-card-active: #02799d;
 
   --ff-regular: #323238;
+  --ff-secondary: #323238;
+  --ff-slider: #323238;
   --ff-active: #fff;
 
   font-size: 62.5%;
@@ -20,6 +22,8 @@ body {
 
   color: var(--ff-regular);
   background-color: var(--bg-color);
+
+  transition: all 0.3s;
 }
 
 main {
@@ -47,10 +51,24 @@ main {
   font-size: 12.6rem;
   line-height: 14.8rem;
   letter-spacing: 0;
+
+  color: var(--ff-secondary);
 }
 
 .hide {
   display: none;
+}
+
+.theme {
+  position: absolute;
+  top: 6rem;
+  right: 6rem;
+
+  width: 51px;
+  height: 51px;
+
+  border: none;
+  background-color: transparent;
 }
 
 .controls {
@@ -95,9 +113,46 @@ main {
   filter: brightness(0.95);
 }
 
+
+path {
+  fill: var(--ff-regular);
+  
+  transition: all 0.1s;
+}
+
+/* SOUND CARD COMPONENTES */
+
+.sound-cards svg {
+  margin-top: 2.4rem;
+}
+
+.slider {
+  appearance: none;
+  height: 0.4rem;
+  width: 9rem;
+  margin: 3.8rem auto 3rem;
+
+  border-radius: 0.5rem;
+  background-color: var(--ff-slider);
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  
+  height: 1.6rem;
+  width: 1.6rem;
+  
+  border-radius: 99999px;
+  background-color: var(--ff-slider);
+
+  cursor: pointer;
+}
+
+/* ANIMATION */
+
 .blinking {
   animation-name: blinkAnim;
-  animation-duration: .7s;
+  animation-duration: 0.7s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
 }
@@ -110,6 +165,6 @@ main {
     opacity: 0.5;
   }
   100% {
-    opacity: .9;
+    opacity: 0.9;
   }
 }
