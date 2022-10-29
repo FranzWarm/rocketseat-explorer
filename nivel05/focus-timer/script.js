@@ -79,6 +79,7 @@ const displaySeconds = document.querySelector(".seconds");
 // SOUND PANEL FUNCTIONS
 // ---------------------
 let nowPlaying = "";
+let adjustingSlider = false;
 beepFx.volume = 0.3;
 readyFx.volume = 0.3;
 
@@ -91,6 +92,7 @@ function toogleTheme(theme) {
 function resetSndCards() {
   for (const card of soundBtnsList) {
     card.style.backgroundColor = "var(--bg-card-regular)";
+    card.classList.remove("active");
   }
 
   for (const icon of cardsIconList) {
@@ -102,50 +104,56 @@ function resetSndCards() {
   }
 
   for (const vol of volumeSliderList) {
-    vol.style.backgroundColor = "var(--ff-slider)"
-    vol.value = 0
+    vol.style.backgroundColor = "var(--ff-slider)";
+    vol.value = 0;
   }
 }
 
 function activateSndCard(card) {
-  const index = soundBtnsList.indexOf(card);
-  const targetCard = soundBtnsList[index];
-  const targetIcon = cardsIconList[index];
-  const targetSound = soundsList[index];
-  const sound = targetCard.className;
-  const targetSlider = volumeSliderList[index];
+  if (!adjustingSlider) {
+    const index = soundBtnsList.indexOf(card);
+    const targetCard = soundBtnsList[index];
+    const targetIcon = cardsIconList[index];
+    const targetSound = soundsList[index];
+    const targetSlider = volumeSliderList[index];
 
-  resetSndCards();
+    resetSndCards();
 
-  if (nowPlaying !== sound) {
-    nowPlaying = sound;
-    targetSound.play();
-    targetSound.loop = true;
-    targetCard.style.backgroundColor = "var(--bg-card-active)";
-    targetIcon.style.fill = "var(--ff-active)";
-
-    targetSlider.style.backgroundColor = "var(--ff-active)"
-    targetSlider.value = 50
+    if (nowPlaying !== targetSound) {
+      nowPlaying = targetSound;
+      targetSound.play();
+      targetSound.loop = true;
+      targetCard.classList.add("active");
+      targetCard.style.backgroundColor = "var(--bg-card-active)";
+      targetIcon.style.fill = "var(--ff-active)";
+      targetSlider.style.backgroundColor = "var(--ff-active)";
+      if (targetSlider.value == 0) {
+        targetSlider.value = 0.5;
+        targetSound.volume = 0.5;
+      }
+      return;
+    }
+    // stops current sound
+    nowPlaying = "";
+    targetSlider.value = 0;
     return;
   }
-  // stops current sound
-  nowPlaying = "";
-  targetSound.pause();
+  adjustingSlider = false;
 }
 
-btnForestSnd.addEventListener("click", (button) => {
+btnForestSnd.addEventListener("mouseup", (button) => {
   activateSndCard(btnForestSnd);
 });
 
-btnRainSnd.addEventListener("click", () => {
+btnRainSnd.addEventListener("mouseup", () => {
   activateSndCard(btnRainSnd);
 });
 
-btnCoffeeSnd.addEventListener("click", () => {
+btnCoffeeSnd.addEventListener("mouseup", () => {
   activateSndCard(btnCoffeeSnd);
 });
 
-btnFireplaceSnd.addEventListener("click", () => {
+btnFireplaceSnd.addEventListener("mouseup", () => {
   activateSndCard(btnFireplaceSnd);
 });
 
@@ -343,12 +351,23 @@ darkThemeBtn.addEventListener("click", () => {
   toogleTheme(lightColorsList);
 });
 
-rainVolSlider.addEventListener("mousedown", () => {
-  rainSnd.play()
-  rainSnd.volume = rainVolSlider.value / 100
+forestVolSlider.addEventListener("input", () => {
+  forestSnd.volume = forestVolSlider.value;
+  adjustingSlider = true;
+});
 
-  rainVolSlider.addEventListener("mousemove", () => {
-    rainSnd.volume = rainVolSlider.value / 100
-  })
+rainVolSlider.addEventListener("input", () => {
+  rainSnd.volume = rainVolSlider.value;
+  adjustingSlider = true;
+});
 
-})
+coffeeVolSlider.addEventListener("input", () => {
+  coffeeSnd.volume = coffeeVolSlider.value;
+    adjustingSlider = true;
+});
+
+fireplaceVolSlider.addEventListener("input", () => {
+  fireplaceSnd.volume = fireplaceVolSlider.value;
+  adjustingSlider = true;
+});
+

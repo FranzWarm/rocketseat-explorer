@@ -148,6 +148,13 @@ path {
   cursor: pointer;
 }
 
+.forest.active .slider::-webkit-slider-thumb,
+.rain.active .slider::-webkit-slider-thumb,
+.coffee.active .slider::-webkit-slider-thumb,
+.fireplace.active .slider::-webkit-slider-thumb {
+  background-color: var(--ff-active);
+}
+
 /* ANIMATION */
 
 .blinking {
