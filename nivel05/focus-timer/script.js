@@ -89,27 +89,41 @@ function toogleTheme(theme) {
   }
 }
 
-function resetSndCards() {
+function resetSndCards(exception) {
+  const index = soundBtnsList.indexOf(exception);
+  const targetCard = soundBtnsList[index];
+  const targetIcon = cardsIconList[index];
+  const targetSound = soundsList[index];
+  const targetSlider = volumeSliderList[index];
+
   for (const card of soundBtnsList) {
-    card.style.backgroundColor = "var(--bg-card-regular)";
-    card.classList.remove("active");
+    if (card != targetCard) {
+      card.style.backgroundColor = "var(--bg-card-regular)";
+      card.classList.remove("active");
+    }
   }
 
   for (const icon of cardsIconList) {
-    icon.style.fill = "var(--ff-regular)";
+    if (icon != targetIcon) {
+      icon.style.fill = "var(--ff-regular)";
+    }
   }
 
   for (const sound of soundsList) {
-    sound.pause();
+    if (sound != targetSound) {
+      sound.pause();
+    }
   }
 
   for (const vol of volumeSliderList) {
-    vol.style.backgroundColor = "var(--ff-slider)";
-    vol.value = 0;
+    if (vol != targetSlider) {
+      vol.style.backgroundColor = "var(--ff-slider)";
+      vol.value = 0;
+    }
   }
 }
 
-function activateSndCard(card) {
+function activateSndCard(card, exception = false) {
   if (!adjustingSlider) {
     const index = soundBtnsList.indexOf(card);
     const targetCard = soundBtnsList[index];
@@ -117,7 +131,7 @@ function activateSndCard(card) {
     const targetSound = soundsList[index];
     const targetSlider = volumeSliderList[index];
 
-    resetSndCards();
+    !exception ? resetSndCards() : resetSndCards(card);
 
     if (nowPlaying !== targetSound) {
       nowPlaying = targetSound;
@@ -127,15 +141,17 @@ function activateSndCard(card) {
       targetCard.style.backgroundColor = "var(--bg-card-active)";
       targetIcon.style.fill = "var(--ff-active)";
       targetSlider.style.backgroundColor = "var(--ff-active)";
-      if (targetSlider.value == 0) {
+      if (targetSlider.value == 0 && !exception) {
         targetSlider.value = 0.5;
         targetSound.volume = 0.5;
       }
       return;
     }
     // stops current sound
-    nowPlaying = "";
-    targetSlider.value = 0;
+    if (!exception) {
+      nowPlaying = "";
+      targetSlider.value = 0;
+    }
     return;
   }
   adjustingSlider = false;
@@ -230,7 +246,7 @@ function runTimer() {
     }
 
     updateTimerDisplay(minutes, seconds);
-  }, 1000);
+  }, 1);
 }
 
 // Add/remove highligh on mouse enter/leve
@@ -363,7 +379,7 @@ rainVolSlider.addEventListener("input", () => {
 
 coffeeVolSlider.addEventListener("input", () => {
   coffeeSnd.volume = coffeeVolSlider.value;
-    adjustingSlider = true;
+  adjustingSlider = true;
 });
 
 fireplaceVolSlider.addEventListener("input", () => {
@@ -371,3 +387,18 @@ fireplaceVolSlider.addEventListener("input", () => {
   adjustingSlider = true;
 });
 
+forestVolSlider.addEventListener("mousedown", () => {
+  activateSndCard(btnForestSnd, true);
+});
+
+rainVolSlider.addEventListener("mousedown", () => {
+  activateSndCard(btnRainSnd, true);
+});
+
+coffeeVolSlider.addEventListener("mousedown", () => {
+  activateSndCard(btnCoffeeSnd, true);
+});
+
+fireplaceVolSlider.addEventListener("mousedown", () => {
+  activateSndCard(btnFireplaceSnd, true);
+});
