@@ -246,7 +246,7 @@ function runTimer() {
     }
 
     updateTimerDisplay(minutes, seconds);
-  }, 1);
+  }, 1000);
 }
 
 // Add/remove highligh on mouse enter/leve
