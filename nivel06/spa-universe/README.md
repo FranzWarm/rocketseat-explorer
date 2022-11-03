@@ -1,21 +1,13 @@
-# Javascript - Jogo da Adivinhação
+# Javascript - SPA
 
-### Controle de elementos html usando javascript (DOM)
-
-
-Este exercício:
+### Single Page Aplication
 
 
-- Gera um número secreto aleatório a ser adivinhado pelo jogador;
-- Compara o número digitado com o número secreto;
-- Caso a palpite esteja errado (ou não seja um número), duas animações em css são disparadas na página;
-  - A primeira faz a tela do jogo tremer;
-  - E a segunda mostra uma mensagem aleatória de erro;
-- Caso o palpite esteja correto, o jogo termina e é apresentada uma segunda tela com o número de tentativas até o número ser encontrado. Dali é possível reiniciar o jogo.
+Conceitos abordados neste projeto:
 
-### Clique [aqui](https://franzwarm.github.io/rocketseat-explorer/nivel05/jogo-adivinhacao) para ver o resultado.
+- Conceitos de SPA;
+- Mapeamento de rotas;
+- Assíncrono e promises;
+- Classes e Orientação a objetos.
 
-<br>
-
-https://user-images.githubusercontent.com/80177177/197366071-481ea04b-1aff-487d-b05c-47e4274b34a1.mp4
-
+### Clique [aqui](https://franzwarm.github.io/rocketseat-explorer/nivel06/spa-universe) para ver o resultado.
