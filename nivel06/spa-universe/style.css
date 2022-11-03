@@ -63,7 +63,7 @@ section {
 .home {
   display: grid;
   place-content: center;
-  background: url("./assets/mountains-universe01.png");
+  background: url("./assets/mountains-universe01.jpg");
   background-size: 100% 100vh;
 }
 
@@ -73,17 +73,17 @@ section {
 }
 
 .universo {
-  background: url("./assets/mountains-universe02.png");
+  background: url("./assets/mountains-universe02.jpg");
   background-size: 100% 100vh;
 }
 
 .exploracao {
-  background: url("./assets/mountains-universe03.png");
+  background: url("./assets/mountains-universe03.jpg");
   background-size: 100% 100vh;
 }
 
 .error404 {
-  background: url("./assets/mountains-universe01.png");
+  background: url("./assets/mountains-universe01.jpg");
   background-size: 100% 100vh;
 }
 
