@@ -1,9 +1,9 @@
-# SPA Universe
+# Projeto SPA Universe
 
 ### Single Page Aplication - HTML, CSS, Javascript
 
 
-Conceitos abordados neste projeto:
+Conceitos abordados:
 
 - Conceitos de SPA;
 - Mapeamento de rotas;
