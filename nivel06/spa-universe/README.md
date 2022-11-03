@@ -1,6 +1,6 @@
-# Javascript - SPA
+# SPA Universe
 
-### Single Page Aplication
+### Single Page Aplication - HTML, CSS, Javascript
 
 
 Conceitos abordados neste projeto:
