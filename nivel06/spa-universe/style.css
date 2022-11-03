@@ -36,20 +36,19 @@ nav a {
   color: #8d8d99;
 }
 
-nav a:nth-child(2):hover {
+/* nav a:nth-child(2):hover {
   padding-left: 0.02rem;
 }
 
 nav a:nth-child(3) {
   padding-right: 0.2rem;
   margin-right: -0.2rem;
-}
+} */
 
-nav a:active,
 nav a:hover {
-  color: #fff;
-  font-weight: bold;
-  padding-right: 0;
+  color: #fff !important;
+  font-weight: bold !important;
+  /* padding-right: 0; */
 }
 
 #app {

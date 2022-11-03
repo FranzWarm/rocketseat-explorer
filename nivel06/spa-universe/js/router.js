@@ -1,9 +1,8 @@
 export class Router {
-  routes = {}
+  routes = {};
 
   add(routeName, page) {
-    this.routes[routeName] = page
-
+    this.routes[routeName] = page;
   }
 
   route(event) {
@@ -12,17 +11,21 @@ export class Router {
 
     window.history.pushState({}, "", event.target.href);
 
+    if (event.target.matches("button")) {
+      window.history.pushState({}, "", "/universo");
+    }
+
     this.handle();
   }
-
+  
   handle() {
     const { pathname } = window.location;
     const route = this.routes[pathname] || this.routes[404];
-
+    
     fetch(route)
-      .then((data) => data.text())
-      .then((html) => {
-        document.querySelector("#app").innerHTML = html;
-      });
+    .then((data) => data.text())
+    .then((html) => {
+      document.querySelector("#app").innerHTML = html;
+    });
   }
 }
