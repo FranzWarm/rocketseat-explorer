@@ -42,9 +42,12 @@ function updateAnchorStyle() {
 }
 
 window.addEventListener("click", (event) => {
+  router.route();
+  
   if (event.target.tagName == "A" || event.target.tagName == "BUTTON") {
     updateAnchorStyle();
   }
+
 });
 
 updateAnchorStyle();

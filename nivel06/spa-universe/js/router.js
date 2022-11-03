@@ -9,11 +9,13 @@ export class Router {
     event = event || window.event;
     event.preventDefault();
 
-    window.history.pushState({}, "", event.target.href);
-
+    let href = event.target.href
+    
     if (event.target.matches("button")) {
-      window.history.pushState({}, "", "/universo");
+      href = event.target.id
     }
+    
+    window.history.pushState({}, "", href);
 
     this.handle();
   }
