@@ -6,7 +6,7 @@
 Este projeto:
 
 - Busca um nome de usuário na API do Github;
-- Se o nome for válido, e ainda não tiver sido adicionado, cria uma noma entrada para o usuário na tabela;
+- Se o nome for válido, e ainda não tiver sido adicionado, cria uma nova entrada para o usuário na tabela;
 - A tabela mostra os seguintes dados do usuário:
   - Foto de perfil,
   - Nome do usuário,
@@ -14,7 +14,7 @@ Este projeto:
   - Número de repositórios,
   - Número de seguidores.
 - A lista de usuários é gravada no local storage do navegador, e persiste no caso da página ser recarregada;
-- Cada entrada da tabela posui um botão para remover a pessoa da lista.
+- Cada entrada da tabela possui um botão para remover a pessoa da lista.
 
 ### Clique [aqui](https://franzwarm.github.io/rocketseat-explorer/nivel06/git-fav) para ver o resultado.
 
