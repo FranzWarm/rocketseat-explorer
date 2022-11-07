@@ -1,0 +1,177 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: #fff;
+  --bg-card-regular: #e1e1e6;
+  --bg-card-active: #02799d;
+
+  --ff-regular: #323238;
+  --ff-secondary: #323238;
+  --ff-slider: #323238;
+  --ff-active: #fff;
+
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+
+  color: var(--ff-regular);
+  background-color: var(--bg-color);
+
+  transition: all 0.3s;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 19rem;
+
+  height: 100vh;
+}
+
+#timer-panel {
+  min-width: 32.5rem;
+  justify-self: end;
+  align-self: center;
+}
+
+#sound-panel {
+  min-width: 30.8rem;
+  justify-self: start;
+  align-self: center;
+}
+
+.timer span {
+  font-size: 12.6rem;
+  line-height: 14.8rem;
+  letter-spacing: 0;
+
+  color: var(--ff-secondary);
+}
+
+.hide {
+  display: none;
+}
+
+.theme {
+  position: absolute;
+  top: 6rem;
+  right: 6rem;
+
+  width: 51px;
+  height: 51px;
+
+  border: none;
+  background-color: transparent;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-around;
+
+  margin-top: 1.8rem;
+}
+
+.controls button {
+  border: none;
+  background-color: transparent;
+
+  cursor: pointer;
+}
+
+.sound-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3.2rem;
+
+  width: 30.8rem;
+}
+
+.sound-cards button {
+  width: 13.8rem;
+  height: 15.2rem;
+
+  border: none;
+  border-radius: 2.4rem;
+  background-color: var(--bg-card-regular);
+
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+.sound-cards button:hover {
+  filter: brightness(0.9);
+}
+
+.sound-cards button:active {
+  filter: brightness(0.95);
+}
+
+
+path {
+  fill: var(--ff-regular);
+  
+  transition: all 0.1s;
+}
+
+/* SOUND CARD COMPONENTES */
+
+.sound-cards svg {
+  margin-top: 2.4rem;
+}
+
+.slider {
+  appearance: none;
+  height: 0.4rem;
+  width: 9rem;
+  margin: 3.8rem auto 3rem;
+
+  border-radius: 0.5rem;
+  background-color: var(--ff-slider);
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  
+  height: 1.6rem;
+  width: 1.6rem;
+  
+  border-radius: 99999px;
+  background-color: var(--ff-slider);
+
+  cursor: pointer;
+}
+
+.forest.active .slider::-webkit-slider-thumb,
+.rain.active .slider::-webkit-slider-thumb,
+.coffee.active .slider::-webkit-slider-thumb,
+.fireplace.active .slider::-webkit-slider-thumb {
+  background-color: var(--ff-active);
+}
+
+/* ANIMATION */
+
+.blinking {
+  animation-name: blinkAnim;
+  animation-duration: 0.7s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes blinkAnim {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
