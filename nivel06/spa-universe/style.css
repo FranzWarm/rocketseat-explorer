@@ -58,11 +58,6 @@ nav a:hover {
 section {
   width: 100vw;
   height: 100vh;
-
-}
-.info {
-  padding-top: 18.5rem;
-  padding-left: 10rem;
 }
 
 .home {
@@ -70,6 +65,11 @@ section {
   place-content: center;
   background: url("./assets/mountains-universe01.jpg");
   background-size: 100% 100vh;
+}
+
+.info {
+  padding-top: 18.5rem;
+  padding-left: 10rem;
 }
 
 .universo {
