@@ -1,345 +1,459 @@
 :root {
-    --ff-heading: 'Staatliches', sans-serif;
-    --ff-texting: 'Palanquin', sans-serif;
-    --ff-texting-b: 'Roboto', sans-serif;
-    --ff-footer: 'Open Sans', sans-serif;
+  /* font families used in this project */
+  --ff-heading: "Staatliches", sans-serif;
+  --ff-texting: "Palanquin", sans-serif;
+  --ff-texting-b: "Roboto", sans-serif;
+  --ff-footer: "Open Sans", sans-serif;
 
-    --bg-primary:   #EFF1FF;
-    --bg-span:      #FEEAFA;
-    --bg-title:     #CBC0D3;
-    --bg-secondary: #8E9AAF;
-    --fc-secondary: #4A4E69;
-    --fc-primary:   #23053A;
+  /* project's color palette */
+  --bg-primary:   #eff1ff;
+  --bg-span:      #feeafa;
+  --bg-title:     #cbc0d3;
+  --bg-secondary: #8e9aaf;
+  --fc-secondary: #4a4e69;
+  --fc-primary:   #23053a;
 
-    --stagger-delay: 45ms;
+  /* the stagger value used for the image cards animation */
+  --stagger-delay: 45ms;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    
-    font-family: var(--ff-texting);
-    font-weight: lighter;
-    font-size: 62.5%;
+  /* clearing default properties */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  /* setting the default font for the page */
+  font-family: var(--ff-texting);
+  font-weight: lighter;
+  font-size: 62.5%;
 }
 
+/*
+  setting the default font size to be 16px
+  after the root font set up
+*/
+body {
+  font-size: 1.6rem;
+}
+
+/*
+  MOBILE FIRST: this is how the elements will
+  appear on smaller screens.
+
+  The page-wrapper div holds the entire page,
+  setting the page size and the elements order
+*/
 .page-wrapper {
-    max-width: 100vw;
-    height: 100vh;
-    margin: 0 auto;
-    
-    background-color: var(--bg-primary);
+  max-width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+
+  background-color: var(--bg-primary);
 }
 
+/* clearing the default style for the anchor elements */
 a {
-    font-size: inherit;
-    text-decoration: none;
+  font-size: inherit;
+  text-decoration: none;
 }
 
+/* MOBILE HEADER PROPERTIES */
 header {
-    padding-top: 3rem;
-    text-align: center;
+  padding-top: 3rem;
+  text-align: center;
 
-    background-color: var(--bg-secondary);
+  background-color: var(--bg-secondary);
 }
 
+/* 
+  mobile and desktop visualizations display
+  slightly different versions of the logo
+*/
 header img {
-    max-width: 14rem;
-    height: auto;
-    
-    margin-bottom: 3rem;
+  max-width: 14rem;
+  height: auto;
+
+  margin-bottom: 3rem;
 }
 
+/* Lettering for SPACE CREAM header */
 header h1 {
-    margin-bottom: 3rem;
-    padding: 0.8rem;
-    
-    font-family: var(--ff-heading);
-    font-size: 4rem;
-    line-height: 3.4rem;
-    letter-spacing: 0.05em;
-    
-    color: #FFF;
-    background-color: var(--bg-title);
-    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  margin-bottom: 3rem;
+  padding: 0.8rem;
+
+  font-family: var(--ff-heading);
+  font-size: 4rem;
+  line-height: 3.4rem;
+  letter-spacing: 0.05em;
+
+  color: #fff;
+  background-color: var(--bg-title);
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 }
 
+/* 
+  This is the info text right below the logo and lettering.
+  It is inside the header, but it's sylized to look like
+  it belongs to the main section.
+
+  I made it his way to see if it was possible to
+  make it work like this! :P
+*/
 .page-info {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    
-    background-color: var(--bg-primary);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  background-color: var(--bg-primary);
 }
 
 .page-info p {
-    max-width: 37rem;
-    margin: 2rem auto 5rem;
-    padding: 0 2rem;
-    
-    font-weight: 400;
-    font-size: 1.5rem;
-    line-height: 1.9rem;
-    color: var(--fc-primary);
+  max-width: 37rem;
+  margin: 2rem auto 5rem;
+  padding: 0 2rem;
+
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.9rem;
+  color: var(--fc-primary);
 }
 
-.page-info p:before {
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a rhoncus leo. Donec at scelerisque magna. Nullam vitae neque sit amet erat dignissim cursus ac ac lectus. Aliquam erat volutpat. Praesent at quam aliquet.";
+/* 
+  the html paragraph tag starts empty and the
+  text is added using the ::before pseudo-element.
+
+  the text is smaller (has less characters) in the
+  mobile version.
+*/
+.page-info p::before {
+  content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a rhoncus leo. Donec at scelerisque magna. Nullam vitae neque sit amet erat dignissim cursus ac ac lectus. Aliquam erat volutpat. Praesent at quam aliquet.";
 }
 
+/*
+  only a strip of single vertical images
+  are shown in the mobile version
+*/
 .gallery {
-    max-width: 45rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 3.2rem;
+  max-width: 45rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 3.2rem;
 
-    padding: 0 3.2rem 3.2rem;
-    margin: auto;
+  padding: 0 3.2rem 3.2rem;
+  margin: auto;
 }
 
+/*
+  elements with this class will not appear
+  in the mobile version
+*/
 .desktop-only {
-    display: none;
+  display: none;
 }
 
+/* 
+  the images get a little bit bigger
+  and the background is slightly fadded
+  when the mouse is over them
+*/
 .icecream-pic:hover {
-    transform: scale(1.15);   
-    box-shadow: 0 0 0 2000px rgba(239, 241, 255, 0.2);
-    z-index: 999;
+  transform: scale(1.15);
+  box-shadow: 0 0 0 100vh rgba(239, 241, 255, 0.2);
+  z-index: 999;
+
+  transition: all .2s;
 }
 
+/* 
+  set the position and animation
+  for the imagens inside the gallery
+*/
 .icecream-pic {
-    position: relative;
-    transition: 150ms;
-    animation: animated-pic 300ms ease-out;
-    animation-fill-mode: backwards;
-    overflow: hidden;
-    border-radius: 2rem;
+  position: relative;
+  transition: 150ms;
+  animation: animated-pic 300ms ease-out;
+  animation-fill-mode: backwards;
+  overflow: hidden;
+  border-radius: 2rem;
 }
 
+/* 
+  settings for the label over the images.
+  only the mobile version use these labels
+*/
 .icecream-pic span {
-    position: absolute;
-    top: 1.6rem;
-    right: 1.6rem;
-    padding: 0 2.4rem;
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+  padding: 0 2.4rem;
 
-    font-family: var(--ff-heading);
-    font-size: 2rem;
-    line-height: 3.4rem;
-    text-transform: uppercase;
-    color: var(--fc-secondary);
+  font-family: var(--ff-heading);
+  font-size: 2rem;
+  line-height: 3.4rem;
+  text-transform: uppercase;
+  color: var(--fc-secondary);
 
-    border-radius: 2rem;
-    background-color: var(--bg-span);
+  border-radius: 2rem;
+  background-color: var(--bg-span);
 
-    animation: animated-span 300ms ease-out;
-    animation-fill-mode: backwards;
+  animation: animated-span 300ms ease-out;
+  animation-fill-mode: backwards;
 }
 
+/*
+  using the stagger delay variable, this block
+  sets up the animation for each of the images
+  in a way that they appear one at a time.
+*/
 .icecream-pic:nth-child(1) {
-    animation-delay: calc(1 * var(--stagger-delay))
+  animation-delay: calc(1 * var(--stagger-delay));
 }
 
 .icecream-pic:nth-child(2) {
-    animation-delay: calc(2 * var(--stagger-delay));
+  animation-delay: calc(2 * var(--stagger-delay));
 }
 
 .icecream-pic:nth-child(3) {
-    animation-delay: calc(3 * var(--stagger-delay));
+  animation-delay: calc(3 * var(--stagger-delay));
 }
 
 .icecream-pic:nth-child(4) {
-    animation-delay: calc(4 * var(--stagger-delay));;
+  animation-delay: calc(4 * var(--stagger-delay));
 }
 
+/* set up the the images inside the divs */
 .icecream-pic img {
-    width: 100%;
+  width: 100%;
+  height: auto;
+
+  border-radius: 2rem;
+}
+
+/* there is no footer in the mobile version */
+.footer-wrapper {
+  display: none;
+}
+
+/* 
+  this version shows the vertical header
+  with the single column images
+*/
+@media (min-width: 700px) {
+  .page-wrapper {
+    display: flex;
+    justify-content: flex-start;
+
+    background-color: var(--bg-primary);
+  }
+
+  header {
+    min-width: 33rem;
+  }
+
+  /* different img for the logo */
+  header img {
+    content: url("images/spacecream_logoB.png");
+    max-width: 21rem;
     height: auto;
 
-    border-radius: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  /* more screen space means the header can be a bit bigger */
+  header h1 {
+    padding: 20px;
+    margin-bottom: 3rem;
+    font-size: 4.8rem;
+  }
+
+  /* set the same style of the header for the page-info */
+  .page-info {
+    background-color: var(--bg-secondary);
+  }
+
+  .page-info p {
+    width: 26rem;
+    color: #fff;
+    font-family: var(--ff-texting-b);
+    font-size: 1.5rem;
+    line-height: 2.2rem;
+  }
+
+  /* the paragraph now has the longer text */
+  .page-info p:before {
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a rhoncus leo. Donec at scelerisque magna. Nullam vitae neque sit amet erat dignissim cursus ac ac lectus. Aliquam erat volutpat. Praesent at quam aliquet, pharetra est in, sagittis lorem.elit. Donec a rhoncus leo. Donec at scelerisque magna. Nullam vitae neque sit amet erat dignissim cursus ac ac lectus. Aliquam erat volutpat. Praesent at quam aliquet, pharetra est in, sagittis lorem. ";
+  }
+
+  main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    overflow: auto;
+  }
+
+  .gallery {
+    width: 100%;
+    padding: 5rem;
+  }
 }
 
-.footer-wrapper {
-    display: none;
-}
-
-@media (min-width: 700px) {
-
-    .page-wrapper {
-        display: flex;
-        justify-content: flex-start;
-
-        background-color: var(--bg-primary);
-    }
-    
-    header {
-        min-width: 33rem;
-    }
-
-    header img {
-        content: url("images/spacecream_logoB.png");
-        max-width: 21rem;
-        height: auto;
-    
-        margin-bottom: 3rem;
-    }
-
-    header h1 {
-        padding: 20px;
-        margin-bottom: 3rem;
-        font-size: 4.8rem;
-    }
-    
-    .page-info {
-        background-color: var(--bg-secondary);
-    }
-    
-    .page-info p {
-        width: 26rem;
-        color: #FFF;
-        font-family: var(--ff-texting-b);
-        font-size: 1.5rem;
-        line-height: 2.2rem;
-    }
-    .page-info p:before {
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a rhoncus leo. Donec at scelerisque magna. Nullam vitae neque sit amet erat dignissim cursus ac ac lectus. Aliquam erat volutpat. Praesent at quam aliquet, pharetra est in, sagittis lorem.elit. Donec a rhoncus leo. Donec at scelerisque magna. Nullam vitae neque sit amet erat dignissim cursus ac ac lectus. Aliquam erat volutpat. Praesent at quam aliquet, pharetra est in, sagittis lorem. "
-    }
-
-    main {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-
-        overflow: auto;
-    }
-
-    .gallery {
-        width: 100%;
-        padding: 5rem;
-    }
-}
-
+/* 
+  at this screen size, the gallery
+  has two colloums for the images 
+*/
 @media (min-width: 1000px) {
+  .page-wrapper {
+    justify-content: center;
+  }
 
-    .page-wrapper {
-        justify-content: center;
-    }
+  main {
+    max-width: 90rem;
+  }
 
-    main {
-        max-width: 90rem;
-    }
+  .icecream-pic span {
+    display: none;
+  }
 
-    .icecream-pic span {
-        display: none;
-    }
+  /*
+    set up for the gallery,
+    using a grid with two columns.
 
-    .gallery {
-        max-width: max-content;
-        padding: 5rem;
-        display: grid;
-        grid-template-areas: "A C"
-                             "B C"
-                             "B D";
-    }
+    the images have different heights
+    and the longer ones get to occupy
+    two vertical cells of the grid.
+  */
+  .gallery {
+    max-width: max-content;
+    padding: 5rem;
+    display: grid;
+    grid-template-areas:
+      "A C"
+      "B C"
+      "B D";
+  }
 
-    .gallery .icecream-pic:nth-child(1) {
-        grid-area: A;
-    }
-    
-    .gallery .icecream-pic:nth-child(2) {
-        grid-area: C;
-    }
-    
-    .gallery .icecream-pic:nth-child(3) {
-        grid-area: D;
-    }
-    
-    .gallery .icecream-pic:nth-child(4) {
-        grid-area: B;
-    }
+  /* assigning each image to its cell  */
+  .gallery .icecream-pic:nth-child(1) {
+    grid-area: A;
+  }
 
-    .footer-wrapper {
-        display: contents;
-        
-        font-family: var(--ff-footer);
-        text-align: center;
-    }
-    
-    .footer-wrapper a {
-        color: var(--bg-secondary);
-        font-weight: bold;
-    }
-    
-    .footer-wrapper p {
-        font-size: 1.4rem;
-        line-height: 2.8rem;
-        color: var(--bg-secondary);
-    }
+  .gallery .icecream-pic:nth-child(2) {
+    grid-area: C;
+  }
+
+  .gallery .icecream-pic:nth-child(3) {
+    grid-area: D;
+  }
+
+  .gallery .icecream-pic:nth-child(4) {
+    grid-area: B;
+  }
+
+  /* the footer now existis in the page */
+  .footer-wrapper {
+    display: contents;
+
+    font-family: var(--ff-footer);
+    text-align: center;
+  }
+
+  .footer-wrapper a {
+    color: var(--bg-secondary);
+    font-weight: bold;
+  }
+
+  .footer-wrapper p {
+    font-size: 1.4rem;
+    line-height: 2.8rem;
+    color: var(--bg-secondary);
+  }
 }
 
+/*
+  in bigger screens the grid can display
+  three columns and two extra images that
+  werent's there on the smaller screen
+  resolutions.
+*/
 @media (min-width: 1300px) {
+  main {
+    max-width: 100vw;
+  }
 
-    main {
-        max-width: 100vw;
-    }
-    
-    .icecream-pic {
-        display: block;
-    }
+  /* 
+    the new images are displayed.
+    the display has to be BLOCK
+    otherwise the grid will break.
+  */
+  .icecream-pic {
+    display: block;
+  }
 
-    .icecream-pic span {
-        display: none;
-    }
+  /* setting up the gallery with three rows */
+  .gallery {
+    max-width: 100vw;
+    padding: 5rem;
+    display: grid;
+    justify-content: center;
+    grid-template-areas:
+      "A C E"
+      "B C F"
+      "B D F";
+  }
 
-    .gallery {
-        max-width: 100vw;
-        padding: 5rem;
-        display: grid;
-        justify-content: center;
-        grid-template-areas: "A C E"
-                             "B C F"
-                             "B D F";
-    }
-
-    .gallery .icecream-pic:nth-child(1) {
-        grid-area: A;
-    }
-    .gallery .icecream-pic:nth-child(2) {
-        grid-area: C;
-    }
-    .gallery .icecream-pic:nth-child(3) {
-        grid-area: D;
-    }
-    .gallery .icecream-pic:nth-child(4) {
-        grid-area: B;
-    }
-    .gallery .icecream-pic:nth-child(5) {
-        grid-area: E;
-        animation-delay: calc(5 * var(--stagger-delay));
-    }
-    .gallery .icecream-pic:nth-child(6) {
-        grid-area: F;
-        animation-delay: calc(6 * var(--stagger-delay));
-    }
+  /* assigning each image to its cell */
+  .gallery .icecream-pic:nth-child(1) {
+    grid-area: A;
+  }
+  .gallery .icecream-pic:nth-child(2) {
+    grid-area: C;
+  }
+  .gallery .icecream-pic:nth-child(3) {
+    grid-area: D;
+  }
+  .gallery .icecream-pic:nth-child(4) {
+    grid-area: B;
+  }
+  .gallery .icecream-pic:nth-child(5) {
+    grid-area: E;
+    animation-delay: calc(5 * var(--stagger-delay));
+  }
+  .gallery .icecream-pic:nth-child(6) {
+    grid-area: F;
+    animation-delay: calc(6 * var(--stagger-delay));
+  }
 }
 
+/* 
+  this animation is used to display the images.
+  they'll start invisible and slighly bellow its
+  final position.
+*/
 @keyframes animated-pic {
-    from {
-        opacity: 0;
-        transform: translateY(3rem) scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(1) scale(1);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(3rem) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(1) scale(1);
+  }
 }
 
+/* 
+  animation for the image labels.
+  they will slide from the right and wont be
+  visible at first thanks to the overflow: hidden
+  property of the icecream-pic class.
+*/
 @keyframes animated-span {
-    from {
-        transform: translateX(20rem);
-    }
-    to {
-        transform: translateX(1);
-    }
+  from {
+    transform: translateX(20rem);
+  }
+  to {
+    transform: translateX(1);
+  }
 }
