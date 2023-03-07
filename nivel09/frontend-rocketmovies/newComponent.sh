@@ -15,4 +15,3 @@ export function $1() {
     </Container>
   );
 }" >> index.jsx
-
