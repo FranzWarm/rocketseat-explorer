@@ -10,9 +10,8 @@ export const Container = styled.div\`
 echo "import { Container } from './styles';
 
 export function $1() {
-  return(
+  return (
     <Container>
-      
     </Container>
   );
 }" >> index.jsx
