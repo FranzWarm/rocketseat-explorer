@@ -12,6 +12,8 @@ echo "import { Container } from './styles';
 export function $1() {
   return (
     <Container>
+      
     </Container>
   );
 }" >> index.jsx
+
