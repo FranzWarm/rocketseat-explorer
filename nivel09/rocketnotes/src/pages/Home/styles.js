@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Conteiner = styled.div`
   width: 100%;
@@ -7,13 +8,13 @@ export const Conteiner = styled.div`
   display: grid;
   grid-template-columns: 250px auto;
   grid-template-rows: 105px 128px auto 64px;
-  grid-template-areas: 
+  grid-template-areas:
     "brand header"
     "menu search"
     "menu content"
     "newnote content";
 
-    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
+  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
 `;
 export const Brand = styled.div`
   grid-area: brand;
@@ -28,7 +29,6 @@ export const Brand = styled.div`
     font-size: 24px;
     color: ${({ theme }) => theme.COLORS.ORANGE};
   }
-
 `;
 export const Menu = styled.ul`
   grid-area: menu;
@@ -51,18 +51,16 @@ export const Content = styled.div`
   padding: 0 64px;
 
   overflow-y: auto;
-
 `;
-export const NewNote = styled.button`
+export const NewNote = styled(Link)`
   grid-area: newnote;
-
-  border: none;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
   background-color: ${({ theme }) => theme.COLORS.ORANGE};
+  color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
 
   > svg {
     margin-right: 8px;

@@ -14,6 +14,6 @@ export function $1() {
     <Container>
       
     </Container>
-  )
-};" >> index.jsx
+  );
+}" >> index.jsx
 
